@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} {COMPANY_INFO.legalName}. {t.rights[currentLang]}
+            © 2026 PT DOMPET CLASSIFIED ADS. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">

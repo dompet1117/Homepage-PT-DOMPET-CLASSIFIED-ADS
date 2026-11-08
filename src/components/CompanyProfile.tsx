@@ -30,55 +30,60 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ currentLang }) =
         {/* Corporate Details Matrix */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Identity & Legal Data (5 cols) */}
-          <div className="lg:col-span-5 bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
-            <div className="flex items-center gap-3 pb-4 border-b border-slate-800">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+          <div className="lg:col-span-5 bg-gradient-to-b from-slate-900/90 to-slate-950 border border-slate-800/90 hover:border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl transition-colors">
+            <div className="flex items-center gap-3 pb-4 border-b border-slate-800/80">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-inner">
                 <Building2 className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                  Company Identity
+                <span className="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
+                  Verified Entity Registry
                 </span>
-                <h3 className="text-xl font-black text-white">
+                <h3 className="text-xl font-black text-white tracking-tight">
                   {COMPANY_INFO.legalName}
                 </h3>
               </div>
             </div>
 
             <div className="space-y-4 text-xs sm:text-sm">
-              <div className="flex items-start justify-between py-2 border-b border-slate-900">
+              <div className="flex items-start justify-between py-2.5 border-b border-slate-900">
                 <span className="text-slate-400">{t.legalName[currentLang]}:</span>
                 <span className="font-bold text-white text-right">{COMPANY_INFO.legalName}</span>
               </div>
 
-              <div className="flex items-start justify-between py-2 border-b border-slate-900">
+              <div className="flex items-start justify-between py-2.5 border-b border-slate-900">
                 <span className="text-slate-400">{t.domain[currentLang]}:</span>
-                <span className="font-mono font-bold text-emerald-400 text-right">{COMPANY_INFO.domain}</span>
+                <span className="font-mono font-bold text-emerald-400 text-right bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/50">
+                  {COMPANY_INFO.domain}
+                </span>
               </div>
 
-              <div className="flex items-start justify-between py-2 border-b border-slate-900">
+              <div className="flex items-start justify-between py-2.5 border-b border-slate-900">
                 <span className="text-slate-400">{t.email[currentLang]}:</span>
                 <a
                   href={`mailto:${COMPANY_INFO.email}`}
-                  className="font-mono text-cyan-400 hover:underline text-right"
+                  className="font-mono text-cyan-400 hover:text-cyan-300 hover:underline text-right transition-colors"
                 >
                   {COMPANY_INFO.email}
                 </a>
               </div>
 
-              <div className="flex items-start justify-between py-2 border-b border-slate-900">
+              <div className="flex items-start justify-between py-2.5 border-b border-slate-900">
                 <span className="text-slate-400">{t.stage[currentLang]}:</span>
                 <span className="font-semibold text-white text-right">
-                  Early-Stage AI Startup / Venture Backed Architecture
+                  Early-Stage AI Startup / Venture Architecture
                 </span>
               </div>
 
-              <div className="flex items-start justify-between py-2 border-b border-slate-900">
+              <div className="flex items-start justify-between py-2.5 border-b border-slate-900">
                 <span className="text-slate-400">{t.headquarters[currentLang]}:</span>
-                <span className="text-white text-right">{COMPANY_INFO.headquarters}</span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-white text-right">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  {COMPANY_INFO.headquarters}
+                </span>
               </div>
 
-              <div className="flex items-start justify-between py-2">
+              <div className="flex items-start justify-between py-2.5">
                 <span className="text-slate-400">{t.ecosystem[currentLang]}:</span>
                 <span className="font-medium text-slate-200 text-right">
                   Spotlight AI · Ad-Net AI · Minutes AI · Mode AI
@@ -86,33 +91,42 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ currentLang }) =
               </div>
             </div>
 
-            <div className="p-3.5 bg-slate-900/90 rounded-2xl border border-slate-800 text-xs text-slate-300 flex items-center gap-3">
+            <div className="p-4 bg-emerald-950/20 rounded-2xl border border-emerald-900/40 text-xs text-slate-300 flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-              <span>
-                Verified corporate registration under Indonesian Law with global product syndication.
+              <span className="text-[12px] leading-relaxed text-slate-300">
+                Incorporated technology venture governed under Indonesian Commercial Law with distributed multi-region edge deployment.
               </span>
             </div>
           </div>
 
           {/* Architecture & Engineering Standards (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
-              <div>
-                <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
-                  System Architecture & Resilience
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
-                  Built for Enterprise-Grade High Availability
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-                  To guarantee uninterrupted operations for consumers and corporate partners, PT DOMPET CLASSIFIED ADS deploys a federated multi-cluster architecture spanning 38 synchronized edge endpoints.
-                </p>
+            <div className="bg-gradient-to-b from-slate-900/90 to-slate-950 border border-slate-800/90 hover:border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                <div>
+                  <span className="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
+                    System Architecture & Resilience
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 tracking-tight">
+                    Enterprise High-Availability Fabric
+                  </h3>
+                </div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 text-xs font-mono self-start sm:self-center">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>99.98% Monitored SLA</span>
+                </div>
               </div>
 
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                To guarantee uninterrupted productivity for consumers and corporate partners, PT DOMPET CLASSIFIED ADS deploys a federated multi-cluster architecture spanning 38 synchronized edge endpoints across both Vibex Business and Vercel infrastructure.
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 space-y-2">
+                <div className="bg-slate-900/70 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-5 space-y-2.5 transition-all">
                   <div className="flex items-center gap-2 text-emerald-400">
-                    <Server className="w-4 h-4" />
+                    <div className="p-1.5 rounded-lg bg-emerald-500/10">
+                      <Server className="w-4 h-4" />
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                       Distributed Clusters
                     </span>
@@ -122,9 +136,11 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ currentLang }) =
                   </p>
                 </div>
 
-                <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 space-y-2">
+                <div className="bg-slate-900/70 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-5 space-y-2.5 transition-all">
                   <div className="flex items-center gap-2 text-cyan-400">
-                    <Cpu className="w-4 h-4" />
+                    <div className="p-1.5 rounded-lg bg-cyan-500/10">
+                      <Cpu className="w-4 h-4" />
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                       Edge Intelligence
                     </span>
@@ -134,9 +150,11 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ currentLang }) =
                   </p>
                 </div>
 
-                <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 space-y-2">
+                <div className="bg-slate-900/70 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-5 space-y-2.5 transition-all">
                   <div className="flex items-center gap-2 text-violet-400">
-                    <Lock className="w-4 h-4" />
+                    <div className="p-1.5 rounded-lg bg-violet-500/10">
+                      <Lock className="w-4 h-4" />
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                       Data Privacy (PDP Law)
                     </span>
@@ -146,9 +164,11 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ currentLang }) =
                   </p>
                 </div>
 
-                <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 space-y-2">
-                  <div className="flex items-center gap-2 text-pink-400">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="bg-slate-900/70 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-5 space-y-2.5 transition-all">
+                  <div className="flex items-center gap-2 text-teal-400">
+                    <div className="p-1.5 rounded-lg bg-teal-500/10">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                       99.9% Production SLA
                     </span>

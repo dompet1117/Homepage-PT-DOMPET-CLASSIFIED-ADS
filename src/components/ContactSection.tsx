@@ -63,12 +63,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
 
         <div className="max-w-4xl mx-auto grid lg:grid-cols-12 gap-8 items-start">
           {/* Direct Contact Info Card (5 cols) */}
-          <div className="lg:col-span-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+          <div className="lg:col-span-5 bg-gradient-to-b from-slate-900/90 to-slate-950 border border-slate-800/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
             <div>
-              <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
+              <span className="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
                 Direct Communication
               </span>
-              <h3 className="text-xl font-bold text-white mt-1">
+              <h3 className="text-xl font-bold text-white mt-1 tracking-tight">
                 Official Channels
               </h3>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -76,57 +76,57 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
               </p>
             </div>
 
-            <div className="space-y-4 pt-2 text-xs sm:text-sm">
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-1">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase">
+            <div className="space-y-3 pt-1 text-xs sm:text-sm">
+              <div className="bg-slate-900/80 p-4 rounded-2xl border border-slate-800/80 hover:border-slate-700 transition-colors space-y-1">
+                <span className="text-[10px] font-mono font-semibold text-slate-400 uppercase tracking-wider">
                   Primary Corporate Inbox
                 </span>
                 <div className="flex items-center justify-between">
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
-                    className="font-mono text-emerald-400 hover:underline font-semibold"
+                    className="font-mono text-emerald-400 hover:text-emerald-300 hover:underline font-semibold transition-colors"
                   >
                     {COMPANY_INFO.email}
                   </a>
-                  <Mail className="w-4 h-4 text-emerald-400" />
+                  <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
                 </div>
               </div>
 
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-1">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase">
+              <div className="bg-slate-900/80 p-4 rounded-2xl border border-slate-800/80 hover:border-slate-700 transition-colors space-y-1">
+                <span className="text-[10px] font-mono font-semibold text-slate-400 uppercase tracking-wider">
                   Registered Web Domain
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-white font-semibold">
                     {COMPANY_INFO.domain}
                   </span>
-                  <Shield className="w-4 h-4 text-cyan-400" />
+                  <Shield className="w-4 h-4 text-cyan-400 shrink-0" />
                 </div>
               </div>
 
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-1">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase">
+              <div className="bg-slate-900/80 p-4 rounded-2xl border border-slate-800/80 hover:border-slate-700 transition-colors space-y-1">
+                <span className="text-[10px] font-mono font-semibold text-slate-400 uppercase tracking-wider">
                   Operations Hub
                 </span>
-                <p className="text-slate-300">
+                <p className="text-slate-300 font-medium">
                   {COMPANY_INFO.headquarters}
                 </p>
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-950/30 border border-emerald-900/60 rounded-2xl text-xs text-emerald-300/90 leading-relaxed">
+            <div className="p-4 bg-emerald-950/20 border border-emerald-900/40 rounded-2xl text-xs text-emerald-300/90 leading-relaxed">
               <span className="font-bold text-emerald-300">Fast Response Guarantee:</span> Inquiries regarding enterprise licensing for Spotlight AI, Ad-Net AI syndication, Minutes AI, or Mode AI receive priority dispatch within 24 business hours.
             </div>
           </div>
 
           {/* Form Card (7 cols) */}
-          <div className="lg:col-span-7 bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+          <div className="lg:col-span-7 bg-slate-950/90 border border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-2xl">
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Inquiry Received</h3>
+                <h3 className="text-2xl font-bold text-white tracking-tight">Inquiry Received</h3>
                 <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                   {t.successMsg[currentLang]}
                 </p>
@@ -158,7 +158,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-300">
-                      {t.fullName[currentLang]} *
+                      {t.fullName[currentLang]} <span className="text-emerald-400">*</span>
                     </label>
                     <div className="relative">
                       <User className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -169,14 +169,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                        className="w-full bg-slate-900/90 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
                     <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-300">
-                      {t.emailAddress[currentLang]} *
+                      {t.emailAddress[currentLang]} <span className="text-emerald-400">*</span>
                     </label>
                     <div className="relative">
                       <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -187,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                        className="w-full bg-slate-900/90 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all"
                       />
                     </div>
                   </div>
@@ -206,7 +206,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Acme Corp"
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                        className="w-full bg-slate-900/90 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all"
                       />
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                       id="contact-product"
                       value={formData.productInterest}
                       onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                      className="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all"
                     >
                       <option value="all">{t.interestAll[currentLang]}</option>
                       {PRODUCTS.map((p) => (
@@ -233,7 +233,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
 
                 <div className="space-y-1.5">
                   <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-300">
-                    {t.message[currentLang]} *
+                    {t.message[currentLang]} <span className="text-emerald-400">*</span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -242,14 +242,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ currentLang }) =
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about your business goals, scale, or platform requirements..."
-                    className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                    className="w-full bg-slate-900/90 border border-slate-800 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all shadow-md shadow-emerald-500/20 disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 hover:from-emerald-300 hover:to-cyan-200 transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.99] disabled:opacity-60 cursor-pointer"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? 'Submitting...' : t.submitBtn[currentLang]}</span>
