@@ -1,0 +1,6 @@
+{
+  "name": "PT DOMPET CLASSIFIED ADS - AI Productivity Platforms",
+  "description": "Official company homepage of PT DOMPET CLASSIFIED ADS (dompetclassifiedads.com), a startup building AI-integrated productivity platforms including Spotlight AI, Ad-Net AI, Minutes AI, and Mode AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
